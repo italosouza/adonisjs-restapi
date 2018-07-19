@@ -1,6 +1,5 @@
 'use strict'
 
-const Image = use('App/Models/Image')
 const Property = use('App/Models/Property')
 const Helpers = use('Helpers')
 
@@ -12,20 +11,20 @@ class ImageController {
    * Create/save a new image.
    * POST images
    */
-  async store({ params, request }) {
-    const property = await Property.findOrFail(params.id);
+  async store ({ params, request }) {
+    const property = await Property.findOrFail(params.id)
 
     const images = request.file('image', {
       types: ['image'],
       size: '2mb'
-    });
+    })
 
     await images.moveAll(Helpers.tmpPath('uploads'), file => ({
       name: `${Date.now()}-${file.clientName}`
-    }));
+    }))
 
     if (!images.movedAll()) {
-      return images.errors();
+      return images.errors()
     };
 
     await Promise.all(
@@ -35,8 +34,7 @@ class ImageController {
     )
   }
 
-
-  async show({ params, response }) {
+  async show ({ params, response }) {
     return response.download(Helpers.tmpPath(`uploads/${params.path}`))
   }
 }

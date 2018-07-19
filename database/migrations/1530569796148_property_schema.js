@@ -3,7 +3,7 @@
 const Schema = use('Schema')
 
 class PropertySchema extends Schema {
-  up() {
+  up () {
     this.create('properties', table => {
       table.increments()
       table.integer('user_id').unsigned().references('id').inTable('users').onUpdate('CASCADE').onDelete('CASCADE')
@@ -16,7 +16,7 @@ class PropertySchema extends Schema {
     })
   }
 
-  down() {
+  down () {
     this.drop('properties')
   }
 }

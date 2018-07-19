@@ -4,15 +4,15 @@ const Model = use('Model')
 const Database = use('Database')
 
 class Property extends Model {
-  user() {
+  user () {
     return this.belongsTo('App/Models/User')
   }
 
-  images() {
+  images () {
     return this.hasMany('App/Models/Image')
   }
 
-  static scopeNearBy(query, latitude, longitude, distance) {
+  static scopeNearBy (query, latitude, longitude, distance) {
     const haversine = `(6371 * acos(cos(radians(${latitude}))
     * cos(radians(latitude))
     * cos(radians(longitude)

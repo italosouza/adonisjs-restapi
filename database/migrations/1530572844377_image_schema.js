@@ -3,16 +3,16 @@
 const Schema = use('Schema')
 
 class ImageSchema extends Schema {
-  up() {
+  up () {
     this.create('images', table => {
       table.increments()
-      table.integer('property_id').unsigend().references('id').inTable('properties').onUpdate('CASCADE').onDelete('CASCADE')
+      table.integer('property_id').unsigned().references('id').inTable('properties').onUpdate('CASCADE').onDelete('CASCADE')
       table.string('path').notNullable()
       table.timestamps()
     })
   }
 
-  down() {
+  down () {
     this.drop('images')
   }
 }

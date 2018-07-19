@@ -1,117 +1,12 @@
 {
 	"info": {
-		"_postman_id": "4196744e-1091-4c1e-adf4-6135dbc424ab",
+		"_postman_id": "6fde9df6-0fe8-4a43-9c1a-bf08364fe187",
 		"name": "AirBnB",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Login",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "email",
-							"value": "italo@souza.com",
-							"description": "",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "italo",
-							"description": "",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "localhost:3333/sessions",
-					"host": [
-						"localhost"
-					],
-					"port": "3333",
-					"path": [
-						"sessions"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Listar Imoveis",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUzMTkyNjY4Mn0.1gD--ZRtAun_M3Y1F-DP4kAsDiP4y-O5BA4Lfwm_bGE",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded"
-					},
-					{
-						"key": "token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUzMTc4ODA5NH0.Wr8NYmfpbzMXzNAL3-lCEsYqaQVT1JFm1oLXtbpT53M",
-						"disabled": true
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "email",
-							"value": "italo@souza.com",
-							"description": "",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "italo",
-							"description": "",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "localhost:3333/properties?latitude=-27.200768&longitude=-49.624018",
-					"host": [
-						"localhost"
-					],
-					"port": "3333",
-					"path": [
-						"properties"
-					],
-					"query": [
-						{
-							"key": "latitude",
-							"value": "-27.200768"
-						},
-						{
-							"key": "longitude",
-							"value": "-49.624018"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Create User",
+			"name": "Usuario Criar",
 			"request": {
 				"auth": {
 					"type": "noauth"
@@ -128,31 +23,29 @@
 					"urlencoded": [
 						{
 							"key": "username",
-							"value": "italo",
-							"description": "",
+							"value": "admin",
 							"type": "text"
 						},
 						{
 							"key": "email",
-							"value": "italo@souza.com",
-							"description": "",
+							"value": "admin@sistema.com",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "italo",
-							"description": "",
+							"value": "admin",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "localhost:3333/users",
+					"raw": "localhost:3333/api/users",
 					"host": [
 						"localhost"
 					],
 					"port": "3333",
 					"path": [
+						"api",
 						"users"
 					]
 				}
@@ -160,17 +53,10 @@
 			"response": []
 		},
 		{
-			"name": "Create Images",
+			"name": "Usuario Login",
 			"request": {
 				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUzMTkyNzAzMn0.n7Q5hT67FGGUjWxfih1d8lCkO4B7vMWE2j65m-0zAh0",
-							"type": "string"
-						}
-					]
+					"type": "noauth"
 				},
 				"method": "POST",
 				"header": [
@@ -180,43 +66,37 @@
 					}
 				],
 				"body": {
-					"mode": "formdata",
-					"formdata": [
+					"mode": "urlencoded",
+					"urlencoded": [
 						{
-							"key": "image[]",
-							"description": "",
-							"type": "file"
+							"key": "email",
+							"value": "admin@sistema.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "localhost:3333/properties/1/images",
+					"raw": "localhost:3333/api/sessions",
 					"host": [
 						"localhost"
 					],
 					"port": "3333",
 					"path": [
-						"properties",
-						"1",
-						"images"
+						"api",
+						"sessions"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Create Imovel",
+			"name": "Imovel Criar",
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUzMTkyNjY4Mn0.1gD--ZRtAun_M3Y1F-DP4kAsDiP4y-O5BA4Lfwm_bGE",
-							"type": "string"
-						}
-					]
-				},
 				"method": "POST",
 				"header": [
 					{
@@ -230,49 +110,44 @@
 						{
 							"key": "title",
 							"value": "Empresa 3",
-							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "address",
 							"value": "Rua da empresa",
-							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "price",
 							"value": "900",
-							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "latitude",
 							"value": "-27.200368",
-							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "longitude",
 							"value": "-49.621018",
-							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "user_id",
 							"value": "1",
-							"description": "",
 							"type": "text",
 							"disabled": true
 						}
 					]
 				},
 				"url": {
-					"raw": "localhost:3333/properties",
+					"raw": "localhost:3333/api/properties",
 					"host": [
 						"localhost"
 					],
 					"port": "3333",
 					"path": [
+						"api",
 						"properties"
 					]
 				}
@@ -280,18 +155,8 @@
 			"response": []
 		},
 		{
-			"name": "Buscar Imovel",
+			"name": "Imovel Listar",
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUzMTkyNzAzMn0.n7Q5hT67FGGUjWxfih1d8lCkO4B7vMWE2j65m-0zAh0",
-							"type": "string"
-						}
-					]
-				},
 				"method": "GET",
 				"header": [
 					{
@@ -310,44 +175,42 @@
 						{
 							"key": "email",
 							"value": "italo@souza.com",
-							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "password",
 							"value": "italo",
-							"description": "",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "localhost:3333/properties/1",
+					"raw": "localhost:3333/api/properties?latitude=-27.200368&longitude=-49.621018",
 					"host": [
 						"localhost"
 					],
 					"port": "3333",
 					"path": [
-						"properties",
-						"1"
+						"api",
+						"properties"
+					],
+					"query": [
+						{
+							"key": "latitude",
+							"value": "-27.200368"
+						},
+						{
+							"key": "longitude",
+							"value": "-49.621018"
+						}
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Atualizar Imovel",
+			"name": "Imovel Atualizar",
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUzMTkyNzAzMn0.n7Q5hT67FGGUjWxfih1d8lCkO4B7vMWE2j65m-0zAh0",
-							"type": "string"
-						}
-					]
-				},
 				"method": "PUT",
 				"header": [
 					{
@@ -361,56 +224,38 @@
 						{
 							"key": "title",
 							"value": "Nova Residencia",
-							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "address",
 							"value": "Rua das Carmelias",
-							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "price",
 							"value": "12345.36",
-							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "latitude",
 							"value": "-27.200368",
-							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "longitude",
 							"value": "-49.621018",
-							"description": "",
 							"type": "text"
-						},
-						{
-							"key": "user_id",
-							"value": "1",
-							"description": "",
-							"type": "text",
-							"disabled": true
-						},
-						{
-							"key": "id",
-							"value": "1",
-							"description": "",
-							"type": "text",
-							"disabled": true
 						}
 					]
 				},
 				"url": {
-					"raw": "localhost:3333/properties/1",
+					"raw": "localhost:3333/api/properties/1",
 					"host": [
 						"localhost"
 					],
 					"port": "3333",
 					"path": [
+						"api",
 						"properties",
 						"1"
 					]
@@ -419,30 +264,107 @@
 			"response": []
 		},
 		{
-			"name": "Buscar Imagem",
+			"name": "Imovel Buscar",
 			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUzMTc4ODA5NH0.Wr8NYmfpbzMXzNAL3-lCEsYqaQVT1JFm1oLXtbpT53M",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
 						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUzMTkyNzAzMn0.n7Q5hT67FGGUjWxfih1d8lCkO4B7vMWE2j65m-0zAh0",
-							"type": "string"
+							"key": "email",
+							"value": "italo@souza.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "italo",
+							"type": "text"
 						}
 					]
 				},
-				"method": "GET",
-				"header": [],
-				"body": {},
 				"url": {
-					"raw": "localhost:3333/images/1531929311262-tarefa.png",
+					"raw": "localhost:3333/api/properties/1",
 					"host": [
 						"localhost"
 					],
 					"port": "3333",
 					"path": [
+						"api",
+						"properties",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Imagem Criar",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image[]",
+							"type": "file"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3333/api/properties/1/images",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"properties",
+						"1",
+						"images"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Imagem Buscar",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3333/api/images/1531972900378-pickles2-thumb.jpg",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
 						"images",
-						"1531929311262-tarefa.png"
+						"1531972900378-pickles2-thumb.jpg"
 					]
 				}
 			},
@@ -454,9 +376,31 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUzMTc4ODA5NH0.Wr8NYmfpbzMXzNAL3-lCEsYqaQVT1JFm1oLXtbpT53M",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUzMTk3MjUzNX0.ROlFCms2MgYZ_wOD2j-4qA5BBOE0L2oOFXdYEgrw49U",
 				"type": "string"
 			}
 		]
-	}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "30ae1c73-8e6f-4294-98e9-7f06b51d3e31",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "fb21adf3-e52a-4751-8939-3f5b77da4bd3",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
 }
