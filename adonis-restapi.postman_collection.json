@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "6fde9df6-0fe8-4a43-9c1a-bf08364fe187",
+		"_postman_id": "ea11f4df-6719-425d-8f2b-d0c88506d10d",
 		"name": "AirBnB",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -47,6 +47,51 @@
 					"path": [
 						"api",
 						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Usuario Buscar",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "admin@sistema.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3333/api/users/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"users",
+						"1"
 					]
 				}
 			},
@@ -209,6 +254,51 @@
 			"response": []
 		},
 		{
+			"name": "Imovel Buscar",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUzMTc4ODA5NH0.Wr8NYmfpbzMXzNAL3-lCEsYqaQVT1JFm1oLXtbpT53M",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "italo@souza.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "italo",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3333/api/properties/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"properties",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Imovel Atualizar",
 			"request": {
 				"method": "PUT",
@@ -264,51 +354,6 @@
 			"response": []
 		},
 		{
-			"name": "Imovel Buscar",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded"
-					},
-					{
-						"key": "token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUzMTc4ODA5NH0.Wr8NYmfpbzMXzNAL3-lCEsYqaQVT1JFm1oLXtbpT53M",
-						"disabled": true
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "email",
-							"value": "italo@souza.com",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "italo",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "localhost:3333/api/properties/1",
-					"host": [
-						"localhost"
-					],
-					"port": "3333",
-					"path": [
-						"api",
-						"properties",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Imagem Criar",
 			"request": {
 				"method": "POST",
@@ -323,7 +368,8 @@
 					"formdata": [
 						{
 							"key": "image[]",
-							"type": "file"
+							"type": "file",
+							"value": ""
 						}
 					]
 				},
@@ -369,6 +415,204 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Post Criar",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "post_title",
+							"value": "Como configurar o saj?",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "post_body",
+							"value": "Estou com duvida sobre como configurar o saj.",
+							"type": "text",
+							"description": ""
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3333/api/post",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Listar",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUzMTc4ODA5NH0.Wr8NYmfpbzMXzNAL3-lCEsYqaQVT1JFm1oLXtbpT53M",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "italo@souza.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "italo",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3333/api/post",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Buscar",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUzMTc4ODA5NH0.Wr8NYmfpbzMXzNAL3-lCEsYqaQVT1JFm1oLXtbpT53M",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "italo@souza.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "italo",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3333/api/post/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"post",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Atualizar",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "post_title",
+							"value": "Como desinstalar o saj?",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "post_body",
+							"value": "Quero saber como desinstalar o saj.",
+							"type": "text",
+							"description": ""
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:3333/api/post/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"post",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Remover",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost:3333/api/post/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"api",
+						"post",
+						"1"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"auth": {
@@ -376,7 +620,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUzMTk3MjUzNX0.ROlFCms2MgYZ_wOD2j-4qA5BBOE0L2oOFXdYEgrw49U",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUzMjM2MTc4Mn0.d5fmepJBjfQhSwyyUQw8A7aUye8MMpX_PWO_qM1aBwo",
 				"type": "string"
 			}
 		]

@@ -5,7 +5,9 @@ const Route = use('Route')
 // rotas que requerem autenticacao
 Route.group(() => {
   Route.resource('/properties', 'PropertyController').apiOnly()
-  Route.post('properties/:id/images', 'ImageController.store').middleware('auth')
+  Route.resource('/post', 'PostController').apiOnly()
+  Route.get('/users/:id', 'UserController.show')
+  Route.post('properties/:id/images', 'ImageController.store')
 }).prefix('api').middleware('auth')
 
 // rotas que nao precisam de autenticacao

@@ -10,6 +10,12 @@ class UserController {
 
     return user
   }
+
+  async show ({ params, request, response, view }) {
+    const user = await User.findOrFail(params.id)
+    await user.load('posts')
+    return user
+  }
 }
 
 module.exports = UserController
